@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../assets/images/Logo.svg";
 
-// import MainHome from "../MainHome";
-// import MainAbout from "../MainAbout";
-// import MainContact from "../MainContact";
-// import MainShop from "../MainShop";
-
 import {
   Container,
   NavLeft,
