@@ -10,6 +10,7 @@ export const Container = styled.div`
   height: 8rem;
 
   margin-top: 1.6rem;
+  margin-bottom: 11.2rem;
 `;
 
 // Left side of the navbar
@@ -133,28 +134,6 @@ export const ButtonWrapper = styled.div`
     }
   }
 `;
-
-// export const ButtonCart = styled.button`
-//   width: 4rem;
-//   height: 4rem;
-//   border-radius: 50%;
-//   background-color: var(--black-icon-bg);
-
-//   > svg {
-//     fill: var(--purple);
-//   }
-// `;
-
-// export const ButtonUser = styled.button`
-//   width: 4rem;
-//   height: 4rem;
-//   border-radius: 50%;
-//   background-color: var(--black-icon-bg);
-
-//   > svg {
-//     fill: var(--purple);
-//   }
-// `;
 
 const iconCSS = css`
   flex-shrink: 0;

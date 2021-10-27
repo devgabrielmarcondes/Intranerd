@@ -4,12 +4,16 @@ import { Container, Wrapper, Main } from "./styles";
 
 import { Switch, Route } from "react-router-dom";
 
-import MainHome from "../MainHome";
-import MainAbout from "../MainAbout";
-import MainContact from "../MainContact";
-import MainShop from "../MainShop";
+import { AuthContextProvider } from "../../contexts/AuthContext";
 
 import Navbar from "../Navbar";
+
+import MainHome from "../MainHome";
+import MainAbout from "../MainAbout";
+import MainShop from "../MainShop";
+import MainRegister from "../MainRegister";
+import MainLogin from "../MainLogin";
+import MainConfig from "../MainConfig";
 
 const Layout: React.FC = () => {
   return (
@@ -19,10 +23,14 @@ const Layout: React.FC = () => {
           <Navbar />
           <Main>
             <Switch>
-              <Route path="/" component={MainHome} />
-              <Route path="/sobre" component={MainAbout} />
-              <Route path="/contato" component={MainContact} />
-              <Route path="/loja" component={MainShop} />
+              <AuthContextProvider>
+                <Route path="/" exact component={MainHome} />
+                <Route path="/sobre" exact component={MainAbout} />
+                <Route path="/loja" exact component={MainShop} />
+                <Route path="/cadastro" exact component={MainRegister} />
+                <Route path="/login" exact component={MainLogin} />
+                <Route path="/config" exact component={MainConfig} />
+              </AuthContextProvider>
             </Switch>
           </Main>
           {/* <Footer /> */}

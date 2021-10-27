@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useAuth } from "../../hooks/useAuth";
+
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/images/Logo.svg";
@@ -21,6 +23,7 @@ import {
 
 const Navbar: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const { user } = useAuth();
 
   return (
     <Container>
@@ -33,8 +36,9 @@ const Navbar: React.FC = () => {
         <Links className={showLinks ? "hidden" : ""}>
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
-          <Link to="/contato">Contato</Link>
           <Link to="/loja">Loja</Link>
+          <Link to="/cadastro">Cadastre-se</Link>
+          <Link to="/login">Logar</Link>
           <button onClick={() => setShowLinks(!showLinks)}>
             <BarsIcon />
           </button>
