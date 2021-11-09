@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Btn from "../RegisterBtn";
 
@@ -24,6 +24,11 @@ import {
 } from "./styles";
 
 const MainRegister: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [cpf, setCpf] = useState<string>("");
+
   const history = useHistory();
 
   function navigateToLogin() {
@@ -61,7 +66,7 @@ const MainRegister: React.FC = () => {
         </ContactInfo>
 
         <FormInfo>
-          <GoogleBtn onClick={navigateToLogin} >
+          <GoogleBtn onClick={navigateToLogin}>
             Crie sua conta com o Google
             <GoogleIcon />
           </GoogleBtn>
@@ -74,24 +79,44 @@ const MainRegister: React.FC = () => {
             <InputWrapper>
               <InputFlex>
                 <p>Nome</p>
-                <input type="text" />
+                <input
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  autoComplete="none"
+                />
               </InputFlex>
 
               <InputFlex>
                 <p>Email</p>
-                <input type="text" />
+                <input
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  autoComplete="none"
+                />
               </InputFlex>
             </InputWrapper>
 
             <InputWrapper>
               <InputFlex>
                 <p>Senha</p>
-                <input type="text" />
+                <input
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  autoComplete="none"
+                />
               </InputFlex>
 
               <InputFlex>
                 <p>CPF</p>
-                <input type="text" />
+                <input
+                  type="password"
+                  onChange={(e) => setCpf(e.target.value)}
+                  value={cpf}
+                  autoComplete="none"
+                />
               </InputFlex>
             </InputWrapper>
           </form>

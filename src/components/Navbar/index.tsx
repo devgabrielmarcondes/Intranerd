@@ -25,6 +25,8 @@ const Navbar: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
   const { user } = useAuth();
 
+  const logout = async () => {};
+
   return (
     <Container>
       <NavLeft>
@@ -37,8 +39,12 @@ const Navbar: React.FC = () => {
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/loja">Loja</Link>
-          <Link to="/cadastro">Cadastre-se</Link>
-          <Link to="/login">Logar</Link>
+          {!user && <Link to="/cadastro">Cadastre-se</Link>}
+          {!user ? (
+            <Link to="/login">Login</Link>
+          ) : (
+            <Link to="/logout">Logout</Link>
+          )}
           <button onClick={() => setShowLinks(!showLinks)}>
             <BarsIcon />
           </button>

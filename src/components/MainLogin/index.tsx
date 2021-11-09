@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useAuth } from "../../hooks/useAuth";
 
@@ -25,6 +25,10 @@ import {
 } from "./styles";
 
 const MainLogin: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
 
@@ -73,7 +77,7 @@ const MainLogin: React.FC = () => {
           </GoogleBtn>
 
           <Separator>
-            <p>ou entre em sua conta intranerd </p>
+            <p>ou entre em sua conta intranerd</p>
           </Separator>
 
           <form>
