@@ -4,6 +4,8 @@ import Btn from "../RegisterBtn";
 
 import { useHistory } from "react-router-dom";
 
+import { useAuth } from "../../hooks/useAuth";
+
 import {
   Container,
   Titles,
@@ -34,6 +36,8 @@ const MainRegister: React.FC = () => {
   function navigateToLogin() {
     history.push("/login");
   }
+
+  const { register } = useAuth();
 
   return (
     <Container>
@@ -75,7 +79,10 @@ const MainRegister: React.FC = () => {
             <p>ou crie sua conta intranerd</p>
           </Separator>
 
-          <form>
+          <form onSubmit={async e => {
+            e.preventDefault();
+            register(email, password);
+          }} >
             <InputWrapper>
               <InputFlex>
                 <p>Nome</p>
@@ -119,12 +126,13 @@ const MainRegister: React.FC = () => {
                 />
               </InputFlex>
             </InputWrapper>
-          </form>
+          
 
           <Btn className="registerBtn" type="submit">
             Cadastrar-se
             <LoginIcon />
           </Btn>
+          </form>
         </FormInfo>
       </FormArea>
     </Container>
