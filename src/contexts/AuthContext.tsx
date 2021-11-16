@@ -5,6 +5,10 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  UserCredential
 } from "firebase/auth";
 
 type User = {
@@ -18,6 +22,9 @@ type User = {
 type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
+  login: (email: string, password:string) => Promise<UserCredential>;
+  register: (email: string, password:string) => Promise<UserCredential>;
+  logout: () => Promise<void>;
 };
 
 type AuthContextProviderProps = {
@@ -78,8 +85,20 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     }
   }
 
+  async function login(email: string, password: string) {
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+
+  async function register(email: string, password: string) {
+    return createUserWithEmailAndPassword(auth, email, password)
+  }
+
+  async function logout() {
+    return signOut(auth);
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, register, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );
