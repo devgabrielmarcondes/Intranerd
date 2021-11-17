@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ChakraProvider } from "@chakra-ui/react"
+
 import { Container, Wrapper, Main } from "./styles";
 
 import { Switch, Route } from "react-router-dom";
@@ -18,6 +20,7 @@ import MainConfig from "../MainConfig";
 const Layout: React.FC = () => {
   return (
     <>
+    <ChakraProvider>
       <Container>
         <Wrapper>
           <Navbar />
@@ -36,6 +39,7 @@ const Layout: React.FC = () => {
           {/* <Footer /> */}
         </Wrapper>
       </Container>
+    </ChakraProvider>
     </>
   );
 };

@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 
 import { useAuth } from "../../hooks/useAuth";
 
+import { useToast, Button } from "@chakra-ui/react"
+
 import {
   Container,
   Titles,
@@ -30,6 +32,7 @@ const MainRegister: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [cpf, setCpf] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const history = useHistory();
 
@@ -38,6 +41,7 @@ const MainRegister: React.FC = () => {
   }
 
   const { register } = useAuth();
+  const toast = useToast();
 
   return (
     <Container>
@@ -81,7 +85,23 @@ const MainRegister: React.FC = () => {
 
           <form onSubmit={async e => {
             e.preventDefault();
-            register(email, password);
+            if(!email || !password) {
+              toast({
+                description: "Credenciais não validas",
+                status: "error",
+                duration: 5000,
+                isClosable: true
+              })
+            }
+            setIsSubmitting(true);
+            register(email, password).catch((error) => {
+              toast({
+                description: error.message,
+                status: "error",
+                duration: 5000,
+                isClosable: true
+              })
+            }).finally(()=> setIsSubmitting(false))
           }} >
             <InputWrapper>
               <InputFlex>
@@ -128,10 +148,10 @@ const MainRegister: React.FC = () => {
             </InputWrapper>
           
 
-          <Btn className="registerBtn" type="submit">
+          <Button isLoading={isSubmitting} className="registerBtn" type="submit"  transform="filter 0.2s" _hover={{ filter: 'brightness(0.9)' }} fontFamily="Mukta" fontWeight="700" fontSize="16px" color="#333335" h="44px" bg="#CCB423" w="100%" p="2.5" >
             Cadastrar-se
             <LoginIcon />
-          </Btn>
+          </Button>
           </form>
         </FormInfo>
       </FormArea>
