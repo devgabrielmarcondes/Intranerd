@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Btn from "../RegisterBtn";
-
 import { useHistory } from "react-router-dom";
 
 import { useAuth } from "../../hooks/useAuth";
@@ -89,8 +87,8 @@ const MainRegister: React.FC = () => {
               toast({
                 description: "Credenciais não validas",
                 status: "error",
-                duration: 5000,
-                isClosable: true
+                duration: 4000,
+                isClosable: false
               })
             }
             setIsSubmitting(true);
@@ -98,8 +96,8 @@ const MainRegister: React.FC = () => {
               toast({
                 description: error.message,
                 status: "error",
-                duration: 5000,
-                isClosable: true
+                duration: 4000,
+                isClosable: false
               })
             }).finally(()=> setIsSubmitting(false))
           }} >
@@ -120,7 +118,7 @@ const MainRegister: React.FC = () => {
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
-                  autoComplete="none"
+                  autoComplete="email"
                 />
               </InputFlex>
             </InputWrapper>
@@ -132,7 +130,7 @@ const MainRegister: React.FC = () => {
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
-                  autoComplete="none"
+                  autoComplete="password"
                 />
               </InputFlex>
 
@@ -148,7 +146,7 @@ const MainRegister: React.FC = () => {
             </InputWrapper>
           
 
-          <Button isLoading={isSubmitting} className="registerBtn" type="submit"  transform="filter 0.2s" _hover={{ filter: 'brightness(0.9)' }} fontFamily="Mukta" fontWeight="700" fontSize="16px" color="#333335" h="44px" bg="#CCB423" w="100%" p="2.5" >
+          <Button isLoading={isSubmitting} type="submit"  transform="filter 0.2s" _hover={{ filter: 'brightness(0.9)' }} fontFamily="Mukta" fontWeight="700" fontSize="16px" color="#333335" h="44px" bg="#CCB423" w="100%" p="2.5" >
             Cadastrar-se
             <LoginIcon />
           </Button>

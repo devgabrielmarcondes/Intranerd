@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/images/Logo.svg";
+
+import { useToast } from "@chakra-ui/toast";
 
 import {
   Container,
@@ -23,9 +25,10 @@ import {
 
 const Navbar: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
-  const logout = async () => {};
+  const history = useHistory();
+  const toast = useToast();
 
   return (
     <Container>
@@ -39,12 +42,13 @@ const Navbar: React.FC = () => {
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/loja">Loja</Link>
-          {!user && <Link to="/cadastro">Cadastre-se</Link>}
-          {!user ? (
-            <Link to="/login">Login</Link>
-          ) : (
-            <Link to="/logout">Logout</Link>
-          )}
+          <Link to="/cadastro">Cadastre-se</Link>
+          <Link to="/login">Login</Link>
+          {user && <Link to="/logout" 
+          onClick={async (e) => {
+              e.preventDefault();
+              logout()
+          }}>Logout</Link>}
           <button onClick={() => setShowLinks(!showLinks)}>
             <BarsIcon />
           </button>

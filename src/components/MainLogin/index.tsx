@@ -4,7 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 import { useHistory } from "react-router-dom";
 
-import LBtn from "../LoginBtn";
+import { useToast, Button } from "@chakra-ui/react";
 
 import {
   Container,
@@ -27,6 +27,7 @@ import {
 const MainLogin: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string>("");
 
   const history = useHistory();
@@ -39,6 +40,9 @@ const MainLogin: React.FC = () => {
 
     history.push("/config");
   }
+
+  const { login } = useAuth();
+  const toast = useToast();
 
   return (
     <Container>
@@ -80,20 +84,69 @@ const MainLogin: React.FC = () => {
             <p>ou entre em sua conta intranerd</p>
           </Separator>
 
-          <form>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (!email || !password) {
+                toast({
+                  description: "Credenciais não validas",
+                  status: "error",
+                  duration: 4000,
+                  isClosable: false,
+                });
+              }
+              setIsSubmitting(true);
+              login(email, password)
+                .then(() => {
+                  history.push("/config");
+                })
+                .catch((error) => {
+                  toast({
+                    description: error.message,
+                    status: "error",
+                    duration: 4000,
+                    isClosable: false,
+                  });
+                })
+                .finally(() => setIsSubmitting(false));
+            }}
+          >
             <InputWrapper>
-              <p>Nome</p>
-              <input type="text" />
-
               <p>Email</p>
-              <input type="text" />
-            </InputWrapper>
-          </form>
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                autoComplete="email"
+              />
 
-          <LBtn className="loginBtn" type="submit">
-            Entrar
-            <LoginIcon />
-          </LBtn>
+              <p>Senha</p>
+              <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                autoComplete="password"
+              />
+            </InputWrapper>
+
+            <Button
+              isLoading={isSubmitting}
+              type="submit"
+              transform="filter 0.2s"
+              _hover={{ filter: "brightness(0.9)" }}
+              fontFamily="Mukta"
+              fontWeight="700"
+              fontSize="16px"
+              color="#F5F0F0"
+              h="44px"
+              bg="#08A609"
+              w="100%"
+              p="2.5"
+            >
+              Entrar
+              <LoginIcon />
+            </Button>
+          </form>
         </FormInfo>
       </FormArea>
     </Container>

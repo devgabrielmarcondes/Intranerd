@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useState, useEffect, ReactNode, SetStateAction } from "react";
 
 import {
   getAuth,
@@ -12,11 +12,11 @@ import {
 } from "firebase/auth";
 
 type User = {
-  id: string;
-  name: string;
-  uemail: string | null;
-  uphoneNumber: string | null;
-  avatar: string;
+  id?: string;
+  name?: string;
+  uemail?: string | null;
+  uphoneNumber?: string | null;
+  avatar?: string;
 };
 
 type AuthContextType = {
@@ -35,6 +35,8 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const [user, setUser] = useState<User>();
+  const [currentUser, setCurrentUser] = useState(null);
+  
   const auth = getAuth();
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   }
 
   async function login(email: string, password: string) {
-    return signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   async function register(email: string, password: string) {
