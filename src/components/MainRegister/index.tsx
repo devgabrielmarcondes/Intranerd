@@ -87,8 +87,8 @@ const MainRegister: React.FC = () => {
               toast({
                 description: "Credenciais não validas",
                 status: "error",
-                duration: 4000,
-                isClosable: false
+                duration: 3000,
+                isClosable: true
               })
             }
             setIsSubmitting(true);

@@ -13,6 +13,7 @@ export default createGlobalStyle`
     max-width: 100vw;
     width: 100%;
     height: 100%;
+    background: var(--background);
   }
 
   html {
@@ -26,10 +27,6 @@ export default createGlobalStyle`
     list-style: none;
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
-  }
-
-  html {
-    background: var(--background);
   }
 
   :root {
