@@ -14,7 +14,7 @@ import {
 } from "./styles";
 
 const MainConfig: React.FC = () => {
-  const { user } = useAuth();
+  const { user, currentUser } = useAuth();
 
   return (
     <Container>
@@ -42,7 +42,7 @@ const MainConfig: React.FC = () => {
           <h1>Informações da conta</h1>
           <Information>
             <p>
-              <span>Nome:</span> {user?.name} {JSON.stringify(user)}
+              <span>{currentUser ? <span>Email</span> : <span>Nome</span> }:</span> {user?.name} {JSON.stringify(currentUser, ["email"])}
             </p>
             {/* <p>Email: {user?.email}</p> */}
           </Information>

@@ -92,7 +92,7 @@ const MainLogin: React.FC = () => {
                   description: "Credenciais não validas",
                   status: "error",
                   duration: 3000,
-                  isClosable: true,
+                  isClosable: true
                 });
               }
               setIsSubmitting(true);

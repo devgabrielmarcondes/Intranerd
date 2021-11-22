@@ -21,6 +21,7 @@ type User = {
 
 type AuthContextType = {
   user: User | undefined;
+  currentUser: SetStateAction<null> | string;
   signInWithGoogle: () => Promise<void>;
   login: (email: string, password:string) => Promise<UserCredential>;
   register: (email: string, password:string) => Promise<UserCredential>;
@@ -87,6 +88,15 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     }
   }
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    setCurrentUser(user as any)
+    })
+    return () => {
+      unsubscribe();
+    }
+  }, [])
+
   async function login(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
   }
@@ -100,7 +110,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle, register, login, logout }}>
+    <AuthContext.Provider value={{ user, currentUser, signInWithGoogle, register, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );

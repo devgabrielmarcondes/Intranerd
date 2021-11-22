@@ -13,7 +13,7 @@ export default createGlobalStyle`
     max-width: 100vw;
     width: 100%;
     height: 100%;
-    background: var(--background);
+    background-color: var(--background);
   }
 
   html {
