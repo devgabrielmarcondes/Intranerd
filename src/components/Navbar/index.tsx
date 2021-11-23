@@ -2,11 +2,9 @@ import React, { useState } from "react";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Logo from "../../assets/images/Logo.svg";
-
-import { useToast } from "@chakra-ui/toast";
 
 import {
   Container,
@@ -27,9 +25,6 @@ import { getAuth, signOut } from "@firebase/auth";
 const Navbar: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
   const { user, currentUser } = useAuth();
-
-  const history = useHistory();
-  const toast = useToast();
 
   return (
     <Container>
