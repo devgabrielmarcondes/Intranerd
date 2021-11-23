@@ -42,9 +42,14 @@ const MainConfig: React.FC = () => {
           <h1>Informações da conta</h1>
           <Information>
             <p>
-              <span>{currentUser ? <span>Email</span> : <span>Nome</span> }:</span> {user?.name} {JSON.stringify(currentUser, ["email"])}
+              <span>{currentUser ? <span>Email</span> : <span>Nome</span> }: {user?.name} {JSON.stringify(currentUser, ["email"])}</span> 
             </p>
-            {/* <p>Email: {user?.email}</p> */}
+            <p>
+              <span>{user ? <span>Email:</span> : "" } {user?.uemail}</span>
+            </p>
+            <p>
+              <span>{user ? <span>Telefone:</span> : "" } {user?.uphoneNumber}</span>
+            </p>
           </Information>
         </InfoContainer>
       </UserInfo>

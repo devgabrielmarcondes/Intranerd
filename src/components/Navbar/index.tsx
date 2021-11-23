@@ -22,10 +22,11 @@ import {
   BagIcon,
   UserIcon,
 } from "./styles";
+import { getAuth, signOut } from "@firebase/auth";
 
 const Navbar: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
-  const { user, logout } = useAuth();
+  const { user, currentUser } = useAuth();
 
   const history = useHistory();
   const toast = useToast();
@@ -42,12 +43,13 @@ const Navbar: React.FC = () => {
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/loja">Loja</Link>
-          <Link to="/cadastro">Cadastre-se</Link>
-          <Link to="/login">Login</Link>
+          {!user && <Link to="/cadastro">Cadastre-se</Link>}
+          {!user && <Link to="/login">Login</Link>}
           {user && <Link to="/logout" 
           onClick={async (e) => {
               e.preventDefault();
-              logout()
+              const auth = getAuth();
+              signOut(auth);
           }}>Logout</Link>}
           <button onClick={() => setShowLinks(!showLinks)}>
             <BarsIcon />
@@ -64,9 +66,11 @@ const Navbar: React.FC = () => {
           <Link to="carrinho">
             <BagIcon />
           </Link>
-          <Link to="config">
+          {!user ? <Link to="login">
             <UserIcon />
-          </Link>
+          </Link> : <Link to="config">
+            <UserIcon />
+          </Link>}
         </ButtonWrapper>
       </NavRight>
     </Container>

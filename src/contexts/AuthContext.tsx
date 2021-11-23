@@ -7,7 +7,6 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
   UserCredential
 } from "firebase/auth";
 
@@ -25,7 +24,6 @@ type AuthContextType = {
   signInWithGoogle: () => Promise<void>;
   login: (email: string, password:string) => Promise<UserCredential>;
   register: (email: string, password:string) => Promise<UserCredential>;
-  logout: () => Promise<void>;
 };
 
 type AuthContextProviderProps = {
@@ -105,12 +103,8 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  async function logout() {
-    return signOut(auth);
-  }
-
   return (
-    <AuthContext.Provider value={{ user, currentUser, signInWithGoogle, register, login, logout }}>
+    <AuthContext.Provider value={{ user, currentUser, signInWithGoogle, register, login }}>
       {props.children}
     </AuthContext.Provider>
   );
