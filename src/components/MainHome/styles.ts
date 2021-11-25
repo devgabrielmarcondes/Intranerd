@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import background from "../../assets/images/feito_para_vc.jpg";
-import { ArrowRight } from "../../styles/icons";
 
 export const Container = styled.div`
   display: flex;
@@ -47,23 +46,11 @@ export const Banner = styled.div`
 export const Categorias = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+
+  max-width: 128rem;
 `;
 
-export const Categoria = styled.div`
+export const Slider = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 38rem;
-  height: 34.4rem;
-  border-radius: 3rem;
-`;
-
-export const Icone = styled.div`
-  cursor: pointer;
-`;
-
-export const ArrowRightI = styled(ArrowRight)`
-  width: 2rem;
-  height: 2rem;
-  fill: var(--white);
-  margin-left: 0.4rem;
 `;

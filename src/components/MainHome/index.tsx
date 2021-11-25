@@ -1,8 +1,9 @@
 import React from "react";
 
-import { Link } from "@chakra-ui/layout";
+import Categoria from "../Categoria";
 import { useHistory } from "react-router-dom";
-import { Container, Banner, Categorias, Categoria, Icone, ArrowRightI } from "./styles";
+import { Container, Banner, Categorias, Slider } from "./styles";
+
 
 const MainHome: React.FC = () => {
   const history = useHistory();
@@ -15,20 +16,22 @@ const MainHome: React.FC = () => {
       <Banner>
         <div>
           <h1>Feito para você</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue fringilla bibendum mi, massa nunc ornare at.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue
+            fringilla bibendum mi, massa nunc ornare at.
+          </p>
           <button>Loja</button>
         </div>
       </Banner>
 
       <Categorias>
         <h1>Categorias</h1>
-        <Categoria>
-          <h1>Nome</h1>
-          <Icone onClick={navigateToCategory}>
-            <Link>Visitar</Link>
-            <ArrowRightI />
-          </Icone>
-        </Categoria>
+        <Slider>
+          <Categoria name="Console" />
+          <Categoria name="Desktop" />
+          <Categoria name="Periféricos" />
+          <Categoria name="Periféricos" />
+        </Slider>
       </Categorias>
     </Container>
   );
