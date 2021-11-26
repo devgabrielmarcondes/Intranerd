@@ -28,7 +28,6 @@ const MainLogin: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string>("");
 
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
