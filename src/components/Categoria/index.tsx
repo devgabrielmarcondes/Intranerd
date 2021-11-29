@@ -8,16 +8,22 @@ import { useHistory } from "react-router-dom";
 
 export interface CategoriaProps {
     name: string;
+    bg?: string;
 }
 
-const Categoria: React.FC<CategoriaProps> = ({name}) => {
+const classes = `console desktop perif`
+
+const Categoria: React.FC<CategoriaProps> = ({name, bg}) => {
   const history = useHistory();
 
   function navigateToCategory() {
     history.push("/");
   }
   return (
-    <Container>
+    <Container
+      name={name}
+      bg={bg}
+    >
       <h1>{name}</h1>
       <Icone onClick={navigateToCategory}>
         <Link>Visitar</Link>
