@@ -26,9 +26,9 @@ const MainHome: React.FC = () => {
         <h1>Categorias</h1>
         <Slider>
           <Categoria name="Console" bg="" />
-          <Categoria name="Desktop" />
-          <Categoria name="Periféricos" />
-          <Categoria name="Periféricos" />
+          <Categoria name="Desktop" bg="" />
+          <Categoria name="Periféricos" bg="" />
+          <Categoria name="Periféricos" bg="" />
         </Slider>
       </Categorias>
     </Container>
