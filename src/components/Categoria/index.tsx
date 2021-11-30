@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 import { Link } from "@chakra-ui/react";
 
@@ -8,12 +8,11 @@ import { useHistory } from "react-router-dom";
 
 export interface CategoriaProps {
     name: string;
-    bg?: string;
 }
 
 const classes = `console desktop perif`
 
-const Categoria: React.FC<CategoriaProps> = ({name, bg}) => {
+const Categoria: React.FC<CategoriaProps> = ({name}) => {
   const history = useHistory();
 
   function navigateToCategory() {
@@ -22,11 +21,10 @@ const Categoria: React.FC<CategoriaProps> = ({name, bg}) => {
   return (
     <Container
       name={name}
-      bg={bg}
     >
       <h1>{name}</h1>
       <Icone onClick={navigateToCategory}>
-        <Link>Visitar</Link>
+        <Link ml="2.8rem" >Visitar</Link>
         <ArrowRightI />
       </Icone>
     </Container>

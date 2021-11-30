@@ -3,6 +3,11 @@ import React from "react";
 import Categoria from "../Categoria";
 import { useHistory } from "react-router-dom";
 import { Container, Banner, Categorias, Slider } from "./styles";
+import { Box } from "@chakra-ui/react";
+
+import Console from "../../assets/images/console.jpg";
+import Desktop from "../../assets/images/desktop.jpg";
+import Perif from "../../assets/images/perifim.jpg";
 
 const MainHome: React.FC = () => {
   const history = useHistory();
@@ -25,10 +30,29 @@ const MainHome: React.FC = () => {
       <Categorias>
         <h1>Categorias</h1>
         <Slider>
-          <Categoria name="Console" bg="" />
-          <Categoria name="Desktop" bg="" />
-          <Categoria name="Periféricos" bg="" />
-          <Categoria name="Periféricos" bg="" />
+          <Box
+            bgImage={Console}
+            bgPosition="center"
+            bgRepeat="no-repeat"
+            w="32.4rem"
+            h="34.4rem"
+            borderRadius="3rem"
+          >
+            <Categoria name="Console" />
+          </Box>
+          <Box bgImage={Desktop} w="32.4rem" h="34.4rem" borderRadius="3rem">
+            <Categoria name="Desktop" />
+          </Box>
+          <Box
+            bgImage={Perif}
+            bgPosition="center"
+            bgRepeat="no-repeat"
+            w="32.4rem"
+            h="34.4rem"
+            borderRadius="3rem"
+          >
+            <Categoria name="Periféricos" />
+          </Box>
         </Slider>
       </Categorias>
     </Container>

@@ -13,9 +13,14 @@ export const Container = styled.div<CategoriaProps>`
 
   width: 32.4rem;
   height: 34.4rem;
-  background-image: ${({ name }) => (name ? "var(--gray)" : "var(--white)")};
   margin-right: 2.4rem;
   border-radius: 3rem;
+
+  > h1 {
+    margin-left: 2.8rem;
+    font-size: 3rem;
+    font-weight: 700;
+  }
 `;
 
 export const Icone = styled.div`

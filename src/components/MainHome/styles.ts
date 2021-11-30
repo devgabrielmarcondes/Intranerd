@@ -49,8 +49,15 @@ export const Categorias = styled.div`
   justify-content: space-evenly;
 
   max-width: 128rem;
+
+  > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+  }
 `;
 
 export const Slider = styled.div`
   display: flex;
+  justify-content: space-evenly;
 `;
