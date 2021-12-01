@@ -13,7 +13,7 @@ export const Banner = styled.div`
   width: auto;
   height: 77.2rem;
   background-image: url("${background}");
-  margin-bottom: 12rem; 
+  margin-bottom: 12rem;
 
   > div {
     margin-top: 27.6rem;
@@ -48,7 +48,25 @@ export const Categorias = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 
+  margin-bottom: 12rem;
   max-width: 128rem;
+
+  > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+    margin-left: 7.7rem;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export const Catalogo = styled.div`
+  display: flex;
+  flex-direction: column;
 
   > h1 {
     font-size: 3rem;
@@ -57,7 +75,23 @@ export const Categorias = styled.div`
   }
 `;
 
-export const Slider = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+export const WrapperCat = styled.div`
+  display: grid;
+  grid-template-columns: 56rem 32rem 32rem; // largura
+  grid-template-rows: 28rem 28rem; // altura
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .fimage {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .img-grid {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    filter: opacity(7);
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.2) 38.44%, rgba(0, 0, 0, 0) 100%), url(.jpg);
+  }
 `;
