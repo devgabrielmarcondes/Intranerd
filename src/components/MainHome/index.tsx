@@ -1,6 +1,7 @@
 import React from "react";
 
 import Categoria from "../Categoria";
+import Produto from "../Produto";
 import { useHistory } from "react-router-dom";
 import { Container, Banner, Categorias, Wrapper, Catalogo, WrapperCat, Maisvendidos, WrapperMais } from "./styles";
 import { Box } from "@chakra-ui/react";
@@ -106,19 +107,10 @@ const MainHome: React.FC = () => {
       <Maisvendidos>
         <h1>Mais vendidos</h1>
         <WrapperMais>
-        {/*<Box display="flex" w="31.5rem" h="54rem">
-            <Box display="flex" flex="63%">
-
-            </Box>
-            <Box display="flex" flex="37%">
-              <Title>
-                
-              </Title>
-              <Desc>
-
-              </Desc>
-            </Box>
-          </Box>*/}
+          <Produto nome="Iphone" price="R$ 1900,00" descript="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo nostrum consequuntur aperiam illo quos animi magni eos suscipit, itaque, quo, facere harum laborum vero debitis possimus repudiandae! Adipisci, recusandae!" source={Desktop} />
+          <Produto nome="Iphone" price="R$ 1900,00" descript="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo nostrum consequuntur aperiam illo quos animi magni eos suscipit, itaque, quo, facere harum laborum vero debitis possimus repudiandae! Adipisci, recusandae!" source={Desktop} />
+          <Produto nome="Iphone" price="R$ 1900,00" descript="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo nostrum consequuntur aperiam illo quos animi magni eos suscipit, itaque, quo, facere harum laborum vero debitis possimus repudiandae! Adipisci, recusandae!" source={Desktop} />
+          <Produto nome="Iphone" price="R$ 1900,00" descript="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo nostrum consequuntur aperiam illo quos animi magni eos suscipit, itaque, quo, facere harum laborum vero debitis possimus repudiandae! Adipisci, recusandae!" source={Desktop} />
         </WrapperMais>
       </Maisvendidos>
     </Container>

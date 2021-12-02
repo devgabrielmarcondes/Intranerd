@@ -10,8 +10,6 @@ export interface CategoriaProps {
     name: string;
 }
 
-const classes = `console desktop perif`
-
 const Categoria: React.FC<CategoriaProps> = ({name}) => {
   const history = useHistory();
 
