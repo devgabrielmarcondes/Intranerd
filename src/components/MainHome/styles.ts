@@ -46,8 +46,7 @@ export const Banner = styled.div`
 export const Categorias = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-
+  
   margin-bottom: 12rem;
   max-width: 128rem;
 
@@ -55,7 +54,6 @@ export const Categorias = styled.div`
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1.8rem;
-    margin-left: 7.7rem;
   }
 `;
 
@@ -67,6 +65,8 @@ export const Wrapper = styled.div`
 export const Catalogo = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-bottom: 12rem;
 
   > h1 {
     font-size: 3rem;
@@ -85,6 +85,7 @@ export const WrapperCat = styled.div`
   .fimage {
     grid-row-start: 1;
     grid-row-end: 3;
+    cursor: pointer;
   }
 
   .img-grid {
@@ -93,5 +94,26 @@ export const WrapperCat = styled.div`
     border-radius: 1rem;
     filter: opacity(7);
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.2) 38.44%, rgba(0, 0, 0, 0) 100%), url(.jpg);
+    cursor: pointer;
   }
 `;
+
+export const Maisvendidos = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 12rem;
+  max-width: 128rem;
+
+  > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+  }
+`;
+
+export const WrapperMais = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
