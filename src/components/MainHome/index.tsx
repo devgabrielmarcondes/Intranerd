@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Categoria from "../Categoria";
 import Produto from "../Produto";
@@ -11,6 +11,9 @@ import Desktop from "../../assets/images/desktop.jpg";
 import Perif from "../../assets/images/perifim.jpg";
 import Iphone from "../../assets/images/iphone.jpg";
 
+import {db} from "../../services/firebase";
+import {collection, getDocs} from "firebase/firestore";
+
 const MainHome: React.FC = () => {
   const history = useHistory();
 
@@ -18,16 +21,17 @@ const MainHome: React.FC = () => {
     history.push("/loja");
   }
 
-  const property = {
-    imageUrl: 'https://bit.ly/2Z4KKcF',
-    imageAlt: 'Rear view of modern home with pool',
-    beds: 3,
-    baths: 2,
-    title: 'Modern home in city center in the heart of historic Los Angeles',
-    formattedPrice: '$1,900.00',
-    reviewCount: 34,
-    rating: 4,
-  }
+  const [prods, setProds] = useState([]);
+  const prodsCollectionRef = collection(db, "Produtos")
+
+  useEffect(() => {
+    const getProds = async () => {
+      const data = await getDocs(prodsCollectionRef)
+      console.log(data);
+    }
+
+    getProds();
+  }, [])
 
   return (
     <Container>
