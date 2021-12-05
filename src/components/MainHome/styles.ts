@@ -82,20 +82,22 @@ export const WrapperCat = styled.div`
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
 
-  .fimage {
-    grid-row-start: 1;
-    grid-row-end: 3;
-    cursor: pointer;
-  }
-
   .img-grid {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     filter: opacity(7);
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.2) 38.44%, rgba(0, 0, 0, 0) 100%), url(.jpg);
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
+
+  .img-grid:nth-child(1) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
 `;
 
 export const Maisvendidos = styled.div`
@@ -114,6 +116,5 @@ export const Maisvendidos = styled.div`
 
 export const WrapperMais = styled.div`
   display: flex;
-  justify-content: space-evenly;
 `;
 

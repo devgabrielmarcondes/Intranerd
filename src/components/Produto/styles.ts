@@ -6,6 +6,7 @@ export const Container = styled.div`
     height: 54rem;
     flex-direction: column;
     cursor: pointer;
+    margin-left: 1.6rem;
 `;
 
 export const Image = styled.div`
@@ -31,6 +32,7 @@ export const Header = styled.div`
     text-transform: uppercase;
     > h1 {
         color: var(--black);
+        margin-left: .8rem;
     }
 `;
 
@@ -39,4 +41,6 @@ export const Body = styled.div`
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--black);
+    margin-left: .8rem;
+
 `;
