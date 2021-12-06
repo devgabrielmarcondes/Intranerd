@@ -102,17 +102,29 @@ const iconCSS = css`
 `
 
 export const InstagramI = styled(Instagram)`
-    ${iconCSS}
+    ${iconCSS};
+    &:hover {
+        fill: #e14840;
+    }
 `;
 
 export const TwitterI = styled(Twitter)`
-    ${iconCSS}
+    ${iconCSS};
+    &:hover {
+        fill: #1DA1F2;
+    }
 `;
 
 export const FacebookI = styled(Facebook)`
-    ${iconCSS}
+    ${iconCSS};
+    &:hover {
+        fill: #4267B2;
+    }
 `;
 
 export const YoutubeI = styled(Youtube)`
-    ${iconCSS}
+    ${iconCSS};
+    &:hover {
+        fill: #FF0000;
+    }
 `;
