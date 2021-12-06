@@ -60,7 +60,7 @@ const MainHome = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue
             fringilla bibendum mi, massa nunc ornare at.
           </p>
-          <button>Loja</button>
+          <button className="btn">Loja</button>
         </div>
       </Banner>
       <Categorias>

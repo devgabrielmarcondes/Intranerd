@@ -12,7 +12,7 @@ export const Banner = styled.div`
   flex-direction: column;
   width: auto;
   height: 77.2rem;
-  background-image: url("${background}");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${background}");
   margin-bottom: 12rem;
 
   > div {
@@ -20,7 +20,7 @@ export const Banner = styled.div`
     margin-left: 8rem;
 
     > h1 {
-      font-size: 4rem;
+      font-size: 6rem;
       font-weight: 700;
       margin-bottom: 1.6rem;
     }
@@ -40,6 +40,72 @@ export const Banner = styled.div`
       height: 5rem;
       background-color: var(--green);
     }
+
+  .btn {
+  display: inline-block;
+  background: var(--green);
+  border-radius: 3px;
+  padding: 12px 32px;
+  text-transform: uppercase;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+  position: relative;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: -2px;
+  left: -2px;
+  border-radius: 3px;
+  opacity: 0;
+  width: 20%;
+  height: 70%;
+  z-index: -1;
+  border-top: 3px solid #EDF1F7;
+  border-left: 3px solid #EDF1F7;
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: -2px;
+  right: -2px;
+  border-radius: 3px;
+  opacity: 0;
+  width: 20%;
+  height: 70%;
+  z-index: -1;
+  border-bottom: 3px solid #EDF1F7;
+  border-right: 3px solid #EDF1F7;
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0px 14px 85px rgba(240, 42, 47, 0.06), 0px 5.11023px 31.0264px rgba(240, 42, 47, 0.0413989), 0px 2.48092px 15.0627px rgba(240, 42, 47, 0.0333774), 0px 1.21619px 7.38404px rgba(240, 42, 47, 0.0266226), 0px 0.48089px 2.91966px rgba(240, 42, 47, 0.0186011);
+          box-shadow: 0px 14px 85px rgba(240, 42, 47, 0.06), 0px 5.11023px 31.0264px rgba(240, 42, 47, 0.0413989), 0px 2.48092px 15.0627px rgba(240, 42, 47, 0.0333774), 0px 1.21619px 7.38404px rgba(240, 42, 47, 0.0266226), 0px 0.48089px 2.91966px rgba(240, 42, 47, 0.0186011);
+  -webkit-transform: scale(1.05) skewX(-10deg);
+          transform: scale(1.05) skewX(-10deg);
+}
+
+.btn:hover::after {
+  opacity: 1;
+  top: -2px;
+  left: -2px;
+}
+
+.btn:hover::before {
+  opacity: 1;
+  bottom: -2px;
+  right: -2px;
+}
   }
 `;
 
