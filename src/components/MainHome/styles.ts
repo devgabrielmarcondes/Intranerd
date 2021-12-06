@@ -104,7 +104,6 @@ export const Maisvendidos = styled.div`
   display: flex;
   flex-direction: column;
   
-  margin-bottom: 12rem;
   max-width: 128rem;
 
   > h1 {

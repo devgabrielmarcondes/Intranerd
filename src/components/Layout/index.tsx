@@ -17,6 +17,8 @@ import MainRegister from "../MainRegister";
 import MainLogin from "../MainLogin";
 import MainConfig from "../MainConfig";
 
+import Footer from "../Footer";
+
 const Layout: React.FC = () => {
   return (
     <>
@@ -36,7 +38,7 @@ const Layout: React.FC = () => {
               </AuthContextProvider>
             </Switch>
           </Main>
-          {/* <Footer /> */}
+          <Footer />
         </Wrapper>
       </Container>
     </ChakraProvider>
