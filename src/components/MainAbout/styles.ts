@@ -14,7 +14,7 @@ export const Banner = styled.div`
   height: 77.2rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${background}");
   filter: drop-shadow();
-  margin-bottom: 12rem;
+  margin-bottom: 6rem;
 
   > div {
     margin-top: 27.6rem;

@@ -1,11 +1,25 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Banner, Ferramentas, Filtro, Categorias } from "./styles";
+
+import { Link } from "@chakra-ui/react";
 
 const MainShop: React.FC = () => {
   return (
     <Container>
-      <h1>Hello</h1>
+      <Banner>
+        <div>
+          <h1>Catálogo</h1>
+        </div>
+      </Banner>
+      <Ferramentas>
+        <Filtro>
+          <h1>Filtro</h1>
+        </Filtro>
+        <Categorias>
+          <h1><Link>Eletrônicos</Link></h1>
+        </Categorias>
+      </Ferramentas>
     </Container>
   );
 };

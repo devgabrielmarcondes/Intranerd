@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({nome, cargo, descript, srcc}) => {
                 <p>{descript}</p>
             </Information>
             <Image>
-                <img src={srcc} alt="Desenvolvedor Intranerd" />
+                <img src={srcc} alt="Desenvolvedor Intranerd" width="500" height="380" />
             </Image>
         </Container>
     )

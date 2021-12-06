@@ -39,4 +39,8 @@ export const Image = styled.div`
     display: flex;
     max-width: 50em;
     max-height: 38rem;
+    
+    > img {
+        border-radius: 1rem;
+    }
 `;

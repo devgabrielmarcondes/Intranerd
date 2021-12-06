@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({nome, cargo, descript, srcc}) => {
     return (
         <Container>
             <Image>
-                <img src={srcc} alt="Desenvolvedor Intranerd" />
+                <img src={srcc} alt="Desenvolvedor Intranerd" width="500" height="380" />
             </Image>
             <Information>
                 <h1>{nome}</h1>
