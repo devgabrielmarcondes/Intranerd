@@ -69,3 +69,7 @@ export const Categorias = styled.div`
     font-size: 2.4rem;
   }
 `;
+
+export const Produtos = styled.div`
+  
+`;
