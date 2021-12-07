@@ -2,6 +2,8 @@ import React from "react";
 
 import { Container, Banner, Buttons, Title } from "./styles";
 
+import { useHistory } from "react-router-dom";
+
 import bruce from "../../assets/images/bruce.jpg"
 import erick from "../../assets/images/erick.jpg"
 import gabriels from "../../assets/images/gabriels.jpg"
@@ -12,6 +14,16 @@ import Card from "../Card";
 import CardReverse from "../CardReverse";
 
 const MainAbout: React.FC = () => {
+  const history = useHistory();
+
+  function navigateToShop() {
+    history.push("/loja");
+  }
+
+  function navigateToRegister() {
+    history.push("/cadastro");
+  }
+
   return (
     <Container>
       <Banner>
@@ -21,8 +33,8 @@ const MainAbout: React.FC = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus, maecenas enim magna phasellus feugiat nulla pharetra. Nisi, commodo, sem dictumst id nisl est. Semper nunc varius turpis tincidunt dui.
           </p>
           <Buttons>
-            <button className="btn" >Loja</button>
-            <button className="btn-secondary" >Contate-nos</button>
+            <button className="btn" onClick={navigateToShop} >Loja</button>
+            <button className="btn-secondary" onClick={navigateToRegister} >Cadastre-se</button>
           </Buttons>
         </div>
       </Banner>

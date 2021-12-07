@@ -31,6 +31,10 @@ import { collection, getDocs } from "firebase/firestore";
 const MainHome = () => {
   const history = useHistory();
 
+  function navigateToShop() {
+    history.push("/loja");
+  }
+
   function navigateToCategory() {
     history.push("/loja");
   }
@@ -60,7 +64,7 @@ const MainHome = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue
             fringilla bibendum mi, massa nunc ornare at.
           </p>
-          <button className="btn">Loja</button>
+          <button className="btn" onClick={navigateToShop}>Loja</button>
         </div>
       </Banner>
       <Categorias>
